@@ -1,0 +1,45 @@
+﻿WAXX sur SD99
+
+Faire comme MTALP, ci-dessous le fichier d'exemple.
+J'ai fait les vues
+EXPORT_ENTETECDEWAXX
+EXPORT_LIGNECDEWAXX
+
+Fichier à mettre dans c:\danem\negos\waxx\exportcde
+
+
+[ENTETE]
+
+CodeLigne,1,1,E
+
+CommandesEntetes.Codeclient,2,6
+
+CommandesEntetes.NumeroPiece,8,11
+
+CommandesEntetes.DatePiece,19,8
+
+CommandesEntetes.DatelivPrevue,27,8
+
+CommandesEntetes.Reference1,35,40
+
+CommandesEntetes.Reference2,75,40
+
+CommandesEntetes.Reference3,115,40
+
+CommandesEntetes.Reference4,155,40
+
+[LIGNE]
+
+CodeLigne,1,1,L
+
+CommandesLignes.NumeroPiece,2,11
+
+CommandesLignes.CodeArticle,13,15
+
+CommandesLignes.Quantite,28,8,DEC2
+
+REMISELIGNE1,36,8,DEC2
+
+CommandesLignes.PRIXUNITAIRE,44,8,DEC2
+
+CommandesLignes.INFOSLIGNESUP1,52,50
