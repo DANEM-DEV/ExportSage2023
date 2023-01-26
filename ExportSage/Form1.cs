@@ -356,7 +356,7 @@ namespace ExportSage
 
                         //Flagage des commande
                         //Après la création du fichier , mettre un "1" dans Kemsdata pour les type 83 et 84 dans le champs FLAG afin de le pas ré-exporté.
-                        bool bFlagageOk = true;
+                        bool bFlagageOk = true;  //test commit
                         foreach (string cde in ListCmdtoFlag)   //Ajout pour correction problème flag du 18/5/22
                         {
                             string query = "UPDATE KEMS_DATA SET  flag='5' , date_envoi=getdate() where isnull(flag,'') = ''  and (dat_type="+ type_ent+" or dat_type="+ type_lin + ")";
