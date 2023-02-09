@@ -37,6 +37,7 @@ namespace ExportSage
         static private TextWriter m_fileLIN;
         static private TextWriter m_Log = null;
         static private bool GL_bNoFlag = false;
+        static private bool GL_bAppend = false;
         private void Form1_Load(object sender, EventArgs e)
         {
             try
@@ -80,6 +81,7 @@ namespace ExportSage
                 string noflag_ini = MyIni.GetValue("ExportSage", "noflag");
                 string keyappalive_ini = MyIni.GetValue("ExportSage", "keyappalive");
                 string replace_idx01_in_flag_query_ini = MyIni.GetValue("ExportSage", "replace_idx01_in_flag_query");
+                string append_ini = MyIni.GetValue("ExportSage", "append");
 
 
                 //valeurs par defaut des var_ini
@@ -131,6 +133,9 @@ namespace ExportSage
                 string replace_idx01_in_flag_query = "";
                 replace_idx01_in_flag_query = controlINI(replace_idx01_in_flag_query_ini, replace_idx01_in_flag_query);
 
+                append_ini = controlINI(append_ini, "");
+                if (append_ini == "true")
+                    GL_bAppend = true;
 
                 //stConnString = "DRIVER={SQL Server};SERVER=SD3;DATABASE=negos_CGA;UID=negos_CGA;PWD=FlRtNpj4llJj";      //debug
                 string stPathLog;
@@ -218,7 +223,7 @@ namespace ExportSage
                                 //iCpt++;
 
 
-                                m_fileENT = new StreamWriter(stPathEnt, false, System.Text.Encoding.Default);
+                                m_fileENT = new StreamWriter(stPathEnt, GL_bAppend, System.Text.Encoding.Default);
                                 if (hdr_ent != "")
                                     m_fileENT.WriteLine(hdr_ent);
                             }
@@ -272,7 +277,7 @@ namespace ExportSage
                             //iCpt++;
 
 
-                            m_fileLIN = new StreamWriter(stPathEnt, false, System.Text.Encoding.Default);
+                            m_fileLIN = new StreamWriter(stPathEnt, GL_bAppend, System.Text.Encoding.Default);
 
 
 
